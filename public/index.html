@@ -6,24 +6,61 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/header.css" type="text/css">
+    
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="./scripts/client.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <nav class="top-bar">
+      <div class = "top-bar-left">
+        <img class="icon" src="./images/remember_the_milk.png" width="60px">
+        <p class="header">tweeter</p>
+      </div>
+      <div class="top-bar-right">
+        <p class="newspan"><b>Write</b> a new tweet</p>
+        <i class="fa-solid fa-angles-down" aria-hidden="true"></i>
+      </div>
     </nav>
+  <header>
+    <div >
+      <img id="header-img" src="./images/profile-hex.png">
+    </div>
+    <div class ="header-name">
+      <h2>Andy Shawshank</h2> 
+    </div>
+  </header>
+    <main>  
 
-    <!-- Page-specific (main) content here -->
+    </main>
+    <!-- Page-specific (main) content here
     <main class="container"></main>
+      <section class="new-tweet">
+        <h2 class = "new-tweet">Write a new Tweet</h2>
+        <form class = "new-tweet-form" action ="/tweets/" method="post">
+          <textarea class="text-area" name="content" placeholder="What are you humming about?"></textarea>
+          <input class="submit-btn" type="submit" value="Tweet">
+          <span class="counter">140</span>>
+        </form>
+      </section>
+      <section class=" "tweetsContainer></section>
+    </main> -->
+  </body>
+</html> 
+
   </body>
 </html>
