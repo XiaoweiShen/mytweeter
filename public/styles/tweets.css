@@ -2,6 +2,10 @@ article.tweet {
   border: 4px solid black;
 }
 
+article.tweet:hover {
+  box-shadow:5px 10px grey;
+}
+
 .tweets-container {
   margin-top: 8px;
   width:50%;
@@ -43,9 +47,6 @@ p.tweet-name2 {
   font-size: larger;
 }
 
-.hightlight {
-  color:darkorange;
-}
 
 section.tweet-content{
   border-bottom: #2c2b2b 8px solid;
@@ -62,7 +63,6 @@ footer.tweet-footer {
 }
 
 div.tweet-footer-time {
-  display:flex;
   font-size: smaller;
 }
 
@@ -70,11 +70,8 @@ div.tweet-footer-time {
 div.tweet-footer-right{
   display:flex;
 }
-.container-bottom {
-  width:100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: space-between;
+
+div.tweet-footer-right i:hover{
+  color: orange;
 }
 
