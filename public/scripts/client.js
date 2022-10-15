@@ -59,6 +59,19 @@ $(document).ready(function() {
   //hide or show the compose tweet when click
   $(".top-bar-right").click(function(){
     $(".new-tweet").toggle();
+  })
+  
+  $("form#newtweet").submit(function(event){
+    event.preventDefault();
+    const querystring =  $(this).serialize();
+    console.log(querystring);
+    $.ajax({
+      type:"POST",
+      url:`www.google.com`,
+      data:querystring
+    }).then((data)=>{
+
+    });
   })  
   renderTweets(data);
 });
