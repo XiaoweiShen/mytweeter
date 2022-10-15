@@ -16,17 +16,17 @@ const data = [
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
   }
-  // {
-  //   "user": {
-  //     "name": "Descartes",
-  //     "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //     "handle": "@rd" },
-  //   "content": {
-  //     "text": "Je pense , donc je suis"
-  //   },
-  //   "created_at": 1461113959088
-  // }
 ];
 
 const createTweetElement = function(tweet) {
@@ -52,8 +52,7 @@ const createTweetElement = function(tweet) {
   </footer>
 </article>
   `
-  console.log($tweet);
-  return $tweet;
+ return $tweet;
 };
 
 $(document).ready(function() {
@@ -61,27 +60,15 @@ $(document).ready(function() {
   $(".top-bar-right").click(function(){
     $(".new-tweet").toggle();
   })  
-
-  const $tweet = createTweetElement(data[0]);
-  $('section.tweets-container').append($tweet);
+  renderTweets(data);
 });
 
-
-
-
-
-//const $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-
-
-//const renderTweets = function(tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-//}
-
-
-
-//renderTweets(data);
+const renderTweets = function(tweetdata) {
+  for (let tweet of tweetdata) {
+    const $tweet = createTweetElement(tweet);
+    //console.log(tweet);
+    $('section.tweets-container').append($tweet);
+   }
+return;
+};  
+ 
