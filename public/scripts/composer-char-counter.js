@@ -5,9 +5,17 @@ let count = 140;
 $(document).ready(function() {
   $('#tweet-text').on('input', function(event){
     count=140 - $('#tweet-text').val().length;
-    $('#new-count').toggleClass("negtive-counter",count<0)
+    $('#new-count').toggleClass("negtive-counter",count<0);
     $('#new-count').text(count);
-    })
-  // --- our code goes here ---
+    if(count<0){
+      $('p.err-toolong').slideDown();
+      $('.new-submit').prop('disabled',true);
+    }else{
+      $('p.err-toolong').slideUp();
+      $('.new-submit').prop('disabled',false);
+    }
+    $('.new-submit').toggleClass('btn-disable',count<0);
+    
+  })
 
 });

@@ -56,9 +56,15 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form id="newtweet" action="/tweets/" method="POST">
+        <p class ="err-toolong">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          The tweet is over 140 chars!
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </p>
+
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        <div class="container-bottom">
-          <button id="new-submit" type="submit">Tweet</button>
+          <div class="container-bottom">
+          <button class="new-submit" type="submit">Tweet</button>
           <output id="new-count" name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>

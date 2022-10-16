@@ -51,6 +51,7 @@ p.tweet-name2 {
 
 section.tweet-content{
   border-bottom: #2c2b2b 8px solid;
+  word-break: break-all;
   margin:1em;
   padding-bottom:0.5em;
 }
