@@ -3,32 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// // Fake data taken from initial-tweets.json
-
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ];
 
 const createTweetElement = function(tweet) {
   let $tweet = `
@@ -44,7 +18,7 @@ const createTweetElement = function(tweet) {
      ${tweet['content']['text']}
    </section>
    <footer class="tweet-footer">
-    <div class="tweet-footer-time">${(tweet['created_at'])}</div>
+    <div class="tweet-footer-time">${timeago.format(tweet['created_at'])}</div>
     <div class="tweet-footer-right">
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
@@ -76,12 +50,12 @@ $(document).ready(function() {
       loadTweets();
     });
   });
-  
+
+  //get array and render into tweets container
   const renderTweets = function(tweetdata) {
     for (let tweet of tweetdata) {
       const $tweet = createTweetElement(tweet);
-      //console.log(tweet);
-      $('section.tweets-container').append($tweet);
+      $('section.tweets-container').prepend($tweet);
     }
   return;
   };
