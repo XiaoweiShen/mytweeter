@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function(tweet) {
   let $tweet = `
@@ -15,7 +20,7 @@ const createTweetElement = function(tweet) {
   <p class="tweet-name2">${tweet['user']['handle']}</p>
   </section>
   <section class="tweet-content">
-     ${tweet['content']['text']}
+     ${escape(tweet['content']['text'])}
    </section>
    <footer class="tweet-footer">
     <div class="tweet-footer-time">${timeago.format(tweet['created_at'])}</div>
@@ -40,8 +45,7 @@ $(document).ready(function() {
   $("form#newtweet").submit(function(event){
     event.preventDefault();
     const querystring =  $(this).serialize();
-    console.log(querystring);
-    $.ajax({
+      $.ajax({
       type:"POST",
       url:`/tweets`,
       data:querystring
@@ -69,7 +73,7 @@ $(document).ready(function() {
     ).then((data)=>{
       $('section.tweets-container').empty();
       renderTweets(data);
-      console.log(data);
+      //console.log(data);
     })
   };
   loadTweets();
