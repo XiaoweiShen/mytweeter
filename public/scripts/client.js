@@ -3,31 +3,32 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+// // Fake data taken from initial-tweets.json
+
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ];
 
 const createTweetElement = function(tweet) {
   let $tweet = `
@@ -43,7 +44,7 @@ const createTweetElement = function(tweet) {
      ${tweet['content']['text']}
    </section>
    <footer class="tweet-footer">
-    <div class="tweet-footer-time">${tweet['created_at']}</div>
+    <div class="tweet-footer-time">${(tweet['created_at'])}</div>
     <div class="tweet-footer-right">
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
@@ -56,10 +57,11 @@ const createTweetElement = function(tweet) {
 };
 
 $(document).ready(function() {
+ 
   //hide or show the compose tweet when click
   $(".top-bar-right").click(function(){
     $(".new-tweet").toggle();
-  })
+  });
   
   $("form#newtweet").submit(function(event){
     event.preventDefault();
@@ -67,21 +69,33 @@ $(document).ready(function() {
     console.log(querystring);
     $.ajax({
       type:"POST",
-      url:`www.google.com`,
+      url:`/tweets`,
       data:querystring
-    }).then((data)=>{
-
+    }).then(()=>{
+      
+      loadTweets();
     });
-  })  
-  renderTweets(data);
-});
+  });
+  
+  const renderTweets = function(tweetdata) {
+    for (let tweet of tweetdata) {
+      const $tweet = createTweetElement(tweet);
+      //console.log(tweet);
+      $('section.tweets-container').append($tweet);
+    }
+  return;
+  };
 
-const renderTweets = function(tweetdata) {
-  for (let tweet of tweetdata) {
-    const $tweet = createTweetElement(tweet);
-    //console.log(tweet);
-    $('section.tweets-container').append($tweet);
-   }
-return;
-};  
- 
+  //fetch data from server..
+  const loadTweets = function(){
+    $.ajax(
+      '/tweets',
+      { method: 'GET' }
+    ).then((data)=>{
+      $('section.tweets-container').empty();
+      renderTweets(data);
+      console.log(data);
+    })
+  };
+  loadTweets();
+}); 
