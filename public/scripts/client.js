@@ -36,11 +36,13 @@ const createTweetElement = function(tweet) {
 };
 
 $(document).ready(function() {
+    
   $('p.err-toolong').hide();
   //hide or show the compose tweet when click
   $(".top-bar-right").click(function(){
     $(".new-tweet").toggle();
   });
+
   
   $("form#newtweet").submit(function(event){
     event.preventDefault();
