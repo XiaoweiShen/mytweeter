@@ -19,12 +19,14 @@
   <link rel="stylesheet" href="./styles/header.css" type="text/css">
   <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css">
   <link rel="stylesheet" href="./styles/tweets.css" type="text/css">
-  
+
 
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="./scripts/client.js"></script>
@@ -45,38 +47,37 @@
       <i id="arraw" class="fa-solid fa-angles-down" aria-hidden="true"></i>
     </div>
   </nav>
-  
+  <!-- add a section tay for reponsive design  -->
   <section class="desktop-layout">
-  <header>
-    <div>
-      <img id="header-img" src="./images/profile-hex.png">
-    </div>
-    <div class="header-name">
-      <h2>Andy Shawshank</h2>
-    </div>
-  </header>
-  <main class="container">
-    <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form id="newtweet" action="/tweets/" method="POST">
-        <p class ="err-toolong">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          The tweet is over 140 chars!
-          <i class="fa-solid fa-triangle-exclamation"></i>
-        </p>
-
-        <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+    <header>
+      <div>
+        <img id="header-img" src="./images/profile-hex.png">
+      </div>
+      <div class="header-name">
+        <h2>Andy Shawshank</h2>
+      </div>
+    </header>
+    <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form id="newtweet" action="/tweets/" method="POST">
+          <p class="err-toolong">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            The tweet is over 140 chars!
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </p>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="container-bottom">
-          <button class="new-submit" type="submit">Tweet</button>
-          <output id="new-count" name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <section class="tweets-container">
-    </section>
-    <i id="scrollup" class="fa-solid fa-angles-up fa"></i>
-  </main>
- </section class="desktop-layout">
+            <button class="new-submit" type="submit">Tweet</button>
+            <output id="new-count" name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section class="tweets-container">
+      </section>
+      <i id="scrollup" class="fa-solid fa-angles-up fa"></i>
+    </main>
+  </section class="desktop-layout">
 </body>
 
 </html>
